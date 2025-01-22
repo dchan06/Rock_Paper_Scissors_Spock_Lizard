@@ -1,0 +1,1 @@
+@ROCK, PAPER, SCISSORS, SPOCK, LIZARD CODE. The code is able to keep score and count rounds. I made the code as versatile as I could. I tried to make it easier to add new elements to the game by using functions, pointers and switches. 
