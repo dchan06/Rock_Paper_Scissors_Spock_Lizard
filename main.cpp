@@ -36,6 +36,8 @@ void Result (const string input, const string *moves, int * s, int * d) {
             case 0 : result = 0; break;
             case 1 : result = 1; break;
             case 2 : result = 2; break;
+            case 3 : result = 1; break;
+            case 4 : result = 2; break;
             default: result = 0; break;
         }
     }
@@ -44,6 +46,8 @@ void Result (const string input, const string *moves, int * s, int * d) {
             case 0 : result = 2; break;
             case 1 : result = 0; break;
             case 2 : result = 1; break;
+            case 3 : result = 2; break;
+            case 4 : result = 1; break;
             default: result = 0; break;
         }
     }
@@ -52,6 +56,28 @@ void Result (const string input, const string *moves, int * s, int * d) {
             case 0 : result = 1; break;
             case 1 : result = 2; break;
             case 2 : result = 0; break;
+            case 3 : result = 1; break;
+            case 4 : result = 2; break;
+            default: result = 0; break;
+        }
+    }
+    else if (input == "SPOCK") {
+        switch (computer_Move) {
+            case 0 : result = 2; break;
+            case 1 : result = 1; break;
+            case 2 : result = 2; break;
+            case 3 : result = 0; break;
+            case 4 : result = 1; break;
+            default: result = 0; break;
+        }
+    }
+    else if (input == "LIZARD") {
+        switch (computer_Move) {
+            case 0 : result = 1; break;
+            case 1 : result = 2; break;
+            case 2 : result = 1; break;
+            case 3 : result = 2; break;
+            case 4 : result = 0; break;
             default: result = 0; break;
         }
     }
@@ -74,8 +100,8 @@ void Result (const string input, const string *moves, int * s, int * d) {
 }
 
 int main() {
-    const int num = 3;
-    string moves[num] = {"ROCK", "PAPER", "SCISSORS"};
+    const int num = 5;
+    string moves[num] = {"ROCK", "PAPER", "SCISSORS", "SPOCK", "LIZARD"};
     int round = 1, score = 0, draws = 0;
     string input, round_Input;
     bool round_Start = true;
@@ -88,7 +114,7 @@ int main() {
         //Loops requesting player to input a move if the move is invalid it will ask for an input again
         do {
             //Gets the user's input
-            cout << "Input your move (ROCK/PAPER/SCISSORS): ";
+            cout << "Input your move (ROCK/PAPER/SCISSORS/SPOCK/LIZARD): ";
             cin >> input;
 
             //While loop that changes the characters in the input to capital letters
