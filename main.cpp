@@ -26,9 +26,10 @@ int RandomMove () {
 }
 
 void Result (const string input, const string *moves, int * s, int * d) {
-    int result = 0, computer_Move = RandomMove(), move_Num;
+    int result = 0, computer_Move = RandomMove();
 
     cout << input <<"(YOU) VS " << *(moves+computer_Move) << "(COMPUTER)" << endl;
+
 
     // 0 = draw, 1 = computer win, 2 = player win
     if (input == "ROCK") {
