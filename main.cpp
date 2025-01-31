@@ -19,14 +19,14 @@ int RandomMove () {
     //Generates a random number that does not have a sequence
     mt19937 generator(seed);
 
-    uniform_int_distribution<int> distribution(0, 2);
+    uniform_int_distribution<int> distribution(0, 4);
 
     //Returns the number
     return distribution(generator);
 }
 
 void Result (const string input, const string *moves, int * s, int * d) {
-    int result = 0, computer_Move = RandomMove();
+    int result = 0, computer_Move = RandomMove(), move_Num;
 
     cout << input <<"(YOU) VS " << *(moves+computer_Move) << "(COMPUTER)" << endl;
 
@@ -136,22 +136,22 @@ int main() {
 
         Result(input, moves, &score, &draws);
         cout << "Your score: "<< score << "\tComputer's score: " << round - score - draws << "\tDraws: " << draws << endl;
-        cout << "\nWould you like to play again? (Y/N): ";
-        cin >> round_Input;
 
-        if (round_Input == "Y") {
-            round += 1;
-            round_Start = true;
-        }
-        else if (round_Input == "N") {
-            cout << "Thanks for playing!";
-            round_Start = false;
-            return 0;
-        }
-        else {
-            cout << "Invalid input";
-            round_Start = false;
-            return 0;
-        }
+        do {
+            cout << "\nWould you like to play again? (Y/N): ";
+            cin >> round_Input;
+            if (round_Input == "Y") {
+                round += 1;
+                round_Start = true;
+            }
+            else if (round_Input == "N") {
+                cout << "Thanks for playing!";
+                return 0;
+            }
+            else {
+                cout << "Invalid input";
+                round_Start = false;
+            }
+        }while (round_Start == false);
     }
 }
